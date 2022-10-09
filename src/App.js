@@ -9,7 +9,7 @@ function App() {
   
   return (
     <div className="App">
-    {/* <About /> */}
+    <About />
     {/* <EGdata key='1'/> */}
     {/* <Craftdata /> */}
     <EGdata title='EG Workshop on Graphics and Cultural Heritage' subtitle='A workshop for Graphics and Heritage researchers and professionals' description={text} communityid='97846f9e-10b3-4c61-919b-ca65128c8e10'/>
