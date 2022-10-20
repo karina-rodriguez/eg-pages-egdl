@@ -1,31 +1,98 @@
-.card {
-    /* Add shadows to create the "card" effect */
-
-    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-    /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); */
-    transition: 0.3s;
-    margin: 10px;
-    margin: auto;
-    width: 50%;
-    height: fit-content;
-    border: 3px solid grey;
-    padding: 10px;
-}
+/* https://coolors.co/ece4b7-d9dd92-eabe7c-dd6031-311e10 */
 .container{
-        background-color: #f2f2f2;
-        max-width: 70%;
-        margin-right: auto;
-        margin-left: auto;
-        /* background: blue; */
-        padding-top: 20px;
-        padding-bottom: 20px;
-        
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+.container-title{
+    background-color: lightgrey;
+    max-width: 70%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;   
+    text-align: left;
+    border-left: 20px solid green;
+    font-size: large;
+}
+.container-text{
+    border-top: 5px solid white;
+
+    background-color: #f2f2f2;
+    max-width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: left;
+    padding-top: 20px;
+    padding-bottom: 20px; 
+    font-size: medium;
+   
+}
+.container-keywords{
+    border-top: 5px solid white;
+
+    background-color: #f2f2f2;
+    max-width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: left;
+    padding-top: 0px;
+    padding-bottom: 0px; 
+    font-size: medium;
+   
+}
+.container-socialmedia{
+    background-color: green;
+    color: white;
+
+    max-width: 800%;
+    max-height: 100px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: left;
+    padding-top: 10px;
+    padding-bottom: 10px;  
+    font-size: medium;
+    border-top: 5px solid white;
+}
+.container-bibiometrics{
+    color: white;
+    width: 100px;
+    height: 100px;
+    padding-top: 10px;
+    padding-bottom: 10px;  
+    font-size: large;
+}
+.years{
+    background: #CCB966;
+
+}
+.papers{
+    background: #915F99;
+}
+.visitspermonth{
+    background: #50998B;
+}
+.visits4weeks{
+    background: #94790A;
+}
+.averagedownload{
+    background: #729948;
+}
+.averagedownloadperarticle{
+    background: #5F7999;
+}
+
+
+/* .container-bibiometrics1{
+    background-color: red;
+    
+} */
 .vl {
     padding-left: 0px;
     padding-right: 0px;
     border-left: 0.0625rem solid #d9d9d9;
     height: 200px;
-  }
+}
+.socialicon{
+    margin-right: 10px;
+    margin-left: 10px;
+}
