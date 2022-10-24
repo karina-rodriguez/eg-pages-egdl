@@ -10,9 +10,21 @@
     padding-top: 10px;
     padding-bottom: 10px;   
     text-align: left;
-    border-left: 20px solid green;
     font-size: large;
+    
 }
+.container-title.gch{
+    border-left: 20px solid green;
+} 
+.container-title.threedor{
+    border-left: 20px solid blue;
+}  
+.container-title.egsr{
+    border-left: 20px solid purple;
+}
+.container-title.sca{
+    border-left: 20px solid yellowgreen;
+}  
 .container-text{
     border-top: 5px solid white;
 
@@ -40,7 +52,6 @@
    
 }
 .container-socialmedia{
-    background-color: green;
     color: white;
 
     max-width: 800%;
@@ -53,6 +64,18 @@
     font-size: medium;
     border-top: 5px solid white;
 }
+.container-socialmedia.gch{
+    background-color: green;
+} 
+.container-socialmedia.threedor{
+    background-color: blue;
+}  
+.container-socialmedia.egsr{
+    background-color: purple;
+} 
+.container-socialmedia.sca{
+    background-color: yellowgreen;
+} 
 .container-bibiometrics{
     color: white;
     width: 100px;

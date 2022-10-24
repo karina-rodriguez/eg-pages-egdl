@@ -34,14 +34,23 @@ function App() {
     link=''
     latestissueid='33d7aaad-e140-46be-9e55-8f9628baf221'/> 
     } />
-     <Route path="/egsr" element={
+    <Route path="/egsr" element={
     <EGdata title='EGWR: Eurographics Workshop on Rendering' 
     chair='George Drettakis' 
-    communityid='bcf84437-b0b6-4383-af4a-2a44ee5cb85c' 
+    communityid='676e8f6c-16eb-43e9-9add-4cb26a79d3a0' 
     id='egsr'
     description={gsrdescription}
     link=''
     latestissueid='0a4ca6ad-fc2d-4607-8ce4-0c4ae6b5d7a7'/> 
+    } />
+    <Route path="/sca" element={
+    <EGdata title='SCA: Eurographics Symposium on Computer Animation' 
+    chair='Tamar Shinar and Christopher Batty' 
+    communityid='bcf84437-b0b6-4383-af4a-2a44ee5cb85c' 
+    id='sca'
+    description={gsrdescription}
+    link=''
+    latestissueid='2045a532-c714-4f84-92dc-a4e5046c56d0'/> 
     } />
   </Routes>
     {/* <About /> */}

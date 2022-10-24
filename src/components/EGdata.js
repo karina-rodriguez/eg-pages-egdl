@@ -260,7 +260,7 @@ class EGdata extends React.Component{
                     </Col>
                 </Row>
                 <Row className="justify-content-md-center">
-                    <Col lg={9} className={"container-socialmedia"}> 
+                    <Col lg={9} className={"container-socialmedia "+ this.state.id}> 
                     <div><strong>Social media: </strong>
                     <SocialIcon className='socialicon' bgColor="white" url={this.state.link} />
                     <SocialIcon className='socialicon' network="twitter" bgColor="white" url={this.state.twitter} />
@@ -277,7 +277,7 @@ class EGdata extends React.Component{
             {/* Subject areas */}
             <Container >
                 <Row className="justify-content-md-center">
-                    <Col lg={9} className='container-title'>                
+                    <Col lg={9} className={"container-title " + this.state.id}>                
                     <div ><strong>Subject areas</strong> </div>
                     </Col>
     
@@ -362,7 +362,7 @@ class EGdata extends React.Component{
             {/* Last issue */}
             <Container >
                 <Row className="justify-content-md-center">
-                    <Col lg={9} className='container-title'>                
+                    <Col lg={9} className={"container-title " + this.state.id}>                
                     <div ><strong>Last Proceedings</strong> </div>
                     </Col>
                 </Row>
@@ -375,7 +375,7 @@ class EGdata extends React.Component{
             {/* All issues */}
             <Container >
                 <Row className="justify-content-md-center">
-                    <Col lg={9} className='container-title'>                
+                    <Col lg={9} className={"container-title " + this.state.id}>                
                     <div ><strong>All Proceedings</strong> </div>
                     </Col>
                 </Row>
