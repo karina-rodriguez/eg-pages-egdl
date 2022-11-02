@@ -7,8 +7,6 @@ import { SocialIcon } from 'react-social-icons';
 import myPDFImage from '../images/pdf.svg'
 import myMetadataImage from '../images/metadata.svg'
 import { TagCloud } from 'react-tagcloud'
-import randomColor from 'randomcolor';
-
 
 class EGdata extends React.Component{
     constructor(props) {
@@ -29,7 +27,8 @@ class EGdata extends React.Component{
             description: '',
             collections: [],  
             latestcollection: '',     
-            topics : []
+            topics : [],
+            // show: false,
 
             }
     }
@@ -43,10 +42,24 @@ class EGdata extends React.Component{
         var lastissueid = this.state.latestissueid;
         this.getCommunityData(id);
         this.getCollections(id);
-        this.getAuthors(id);
+        // this.getAuthors(id);
         this.getLastIssue(lastissueid);
         this.getTopics(id);
     }
+    // static getDerivedStateFromProps(props, state) {
+    //     console.log('getDerivedStateFromProps method is called'+state.id);
+    //     return {  
+    //         id: props.communityid,
+    //         latestissueid: this.props.latestissueid,
+    //         chair:this.props.chair,
+    //         textdescription:this.props.description,
+    //         link: this.props.link,
+    //         facebook: this.props.facebook,
+    //         twitter: this.props.twitter,
+    //         youtube: this.props.youtube,
+    //         id:this.props.id,        
+    //     };
+    // }
 
     async getCommunityData(id){
         
@@ -100,15 +113,12 @@ class EGdata extends React.Component{
         .then((data) => {
             console.log(data);
             var newcollections = [];
-           
-
-
             for (var key in data) {
                 // console.log(data[key].uuid);
-                var combined = { name: data[key].name, 
-                                 id: data[key].uuid,
-                                 link: 'https://diglib.eg.org'+data[key].link};
-                newcollections.push(combined);
+                var combined = { nameofcollection: data[key].name, 
+                                 idofcollection: data[key].uuid,
+                                 linkofcollection: 'https://diglib.eg.org'+data[key].link};
+                                 newcollections.push(combined);
             }
             this.setState({ collections: newcollections }) 
 
@@ -119,7 +129,83 @@ class EGdata extends React.Component{
     }
     
     async getAuthors(id){
-        await fetch('https://diglib.eg.org/rest/communities/'+id+'/collections', 
+        // await fetch('https://diglib.eg.org/rest/communities/'+id+'/collections', 
+        // {
+        //     method: 'GET',
+        //     headers: {
+        //         'Content-Type': 'multipart/form-data',
+        //         'Access-Control-Allow-Origin': '*',
+        //     }
+        // }
+        // )
+        // .then((response) => {
+            
+        //     if(response.status === 200){
+        //         return response.json();     
+        //     }else if(response.status === 408){
+        //         this.setState({ requestFailed: true })
+        //     }
+        // })
+        // .then((data) => {
+        //     console.log(data);
+
+        //     var newcollections = [];
+           
+
+
+        //     for (var key in data) {
+        //         console.log(data[key].uuid);
+        //         var combined = { nameofcollection: data[key].name, 
+        //                          idofcollection: data[key].uuid,
+        //                          linkofcollection: 'https://diglib.eg.org'+data[key].link}                                 
+        //                          ;
+
+        //         newcollections.push(combined);
+
+
+
+        //     }
+        //     this.setState({ collections: newcollections }) 
+
+        // })
+        // .catch((error) => {
+        //     this.setState({ requestFailed: true })      
+        // })
+    }
+    async getLastIssue(id){
+        await fetch('https://diglib.eg.org/rest/collections/'+id, 
+        {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'multipart/form-data',
+                'Access-Control-Allow-Origin': '*',
+            }
+        }
+        )
+        .then((response) => {
+            if(response.status === 200){
+                return response.json();     
+            }else if(response.status === 408){
+                this.setState({ requestFailed: true })
+            }
+        })
+        .then((data) => {
+            console.log(data['introductoryText']);            
+            var textcollections = data['introductoryText'].replace(/[\r\n]src="\/static\/icons\/metadata.gif"/gmi, "src=\""+myMetadataImage+"\"");
+            console.log("----*******---");
+            textcollections = textcollections.replace(/src="\/static\/icons\/pdf.gif"/gi, "src=\""+myPDFImage+"\"");
+            console.log("-------");
+            console.log(textcollections);
+            this.setState({latestcollection: textcollections});
+
+        })
+        .catch((error) => {
+            this.setState({ requestFailed: true })      
+        })
+    }
+    async getTopics(id){
+        // https://diglib.eg.org/solr/search
+        await fetch('https://diglib.eg.org/rest/collections/'+id, 
         {
             method: 'GET',
             headers: {
@@ -137,101 +223,27 @@ class EGdata extends React.Component{
             }
         })
         .then((data) => {
-            console.log(data);
+            
+            var topics = [
+                { value: 'Applied computing', count: 29 },
+                { value: 'Computing methodologies', count: 27 },
+                { value: 'Human centered computing', count: 13 },
+                { value: 'Arts and humanities', count: 11 },
+                { value: 'Virtual reality', count: 7 },
+                { value: 'Digital libraries and archives', count: 5 },
+                { value: 'Fine arts', count: 5 },
+                { value: 'Image processing', count: 5 },
+                { value: 'Archaeology', count: 4 },
+                { value: 'Architecture (buildings)', count: 4 },
+                ];
 
-            var newcollections = [];
-           
-
-
-            for (var key in data) {
-                console.log(data[key].uuid);
-                var combined = { name: data[key].name, 
-                                 id: data[key].uuid,
-                                 link: 'https://diglib.eg.org'+data[key].link}                                 
-                                 ;
-
-                newcollections.push(combined);
-
-
-
-            }
-            this.setState({ collections: newcollections }) 
+            this.setState({topics: topics});
 
         })
         .catch((error) => {
             this.setState({ requestFailed: true })      
         })
     }
-    async getLastIssue(id){
-        await fetch('https://diglib.eg.org/rest/collections/'+id, 
-        {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'multipart/form-data',
-                'Access-Control-Allow-Origin': '*',
-            }
-        }
-        )
-        .then((response) => {
-
-            if(response.status === 200){
-                return response.json();     
-            }else if(response.status === 408){
-                this.setState({ requestFailed: true })
-            }
-        })
-        .then((data) => {
-            this.setState({name: data['name']});
-            var textcollections = data['introductoryText'].replace(/src="\/static\/icons\/metadata.gif"/gi, "src=\""+myMetadataImage+"\"");
-            textcollections = textcollections.replace(/src="\/static\/icons\/pdf.gif"/gi, "src=\""+myPDFImage+"\"");
-            this.setState({latestcollection: textcollections});
-
-        })
-        .catch((error) => {
-            this.setState({ requestFailed: true })      
-        })
-        }
-        async getTopics(id){
-            // https://diglib.eg.org/solr/search
-            await fetch('https://diglib.eg.org/rest/collections/'+id, 
-            {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                    'Access-Control-Allow-Origin': '*',
-                }
-            }
-            )
-            .then((response) => {
-               
-                if(response.status === 200){
-                    return response.json();     
-                }else if(response.status === 408){
-                    this.setState({ requestFailed: true })
-                }
-            })
-            .then((data) => {
-               
-                var topics = [
-                    { value: 'Applied computing', count: 29 },
-                    { value: 'Computing methodologies', count: 27 },
-                    { value: 'Human centered computing', count: 13 },
-                    { value: 'Arts and humanities', count: 11 },
-                    { value: 'Virtual reality', count: 7 },
-                    { value: 'Digital libraries and archives', count: 5 },
-                    { value: 'Fine arts', count: 5 },
-                    { value: 'Image processing', count: 5 },
-                    { value: 'Archaeology', count: 4 },
-                    { value: 'Architecture (buildings)', count: 4 },
-                  ];
-
-                this.setState({topics: topics});
-
-            })
-            .catch((error) => {
-                this.setState({ requestFailed: true })      
-            })
-        }
     
 
     render(){
@@ -385,7 +397,7 @@ class EGdata extends React.Component{
                     <div className="div-titles">
                         <ul>
                             {this.state.collections.map((item,i) => (
-                            <li key={item['id']}><a href={item['link']}>{item['name']}</a></li>
+                            <li key={item['idofcollection']}><a href={item['linkofcollection']}>{item['nameofcollection']}</a></li>
                             ))}
                         </ul>
                     </div>
@@ -399,3 +411,5 @@ class EGdata extends React.Component{
     }
 }
 export default EGdata;
+
+
