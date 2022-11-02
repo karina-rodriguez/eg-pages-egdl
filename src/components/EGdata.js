@@ -4,8 +4,8 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { SocialIcon } from 'react-social-icons';
-import myPDFImage from '../images/pdf.svg'
-import myMetadataImage from '../images/metadata.svg'
+// import myPDFImage from '../images/pdf.svg'
+// import myMetadataImage from '../images/metadata.svg'
 import { TagCloud } from 'react-tagcloud'
 
 class EGdata extends React.Component{
@@ -191,9 +191,13 @@ class EGdata extends React.Component{
         })
         .then((data) => {
             console.log(data['introductoryText']);            
-            var textcollections = data['introductoryText'].replace(/[\r\n]src="\/static\/icons\/metadata.gif"/gmi, "src=\""+myMetadataImage+"\"");
+            // var textcollections = data['introductoryText'].replace(/[\r\n]src="\/static\/icons\/metadata.gif"/gmi, "src=\""+myMetadataImage+"\"");
+            var textcollections = data['introductoryText'].replace(/\n/g,"");
+            textcollections = textcollections.replace(/\s{2,}/g,"");
+            textcollections = textcollections.replace(/src="\/static\/icons\/metadata.gif"/gmi, "src=\"/images/metadata.svg\"");
             console.log("----*******---");
-            textcollections = textcollections.replace(/src="\/static\/icons\/pdf.gif"/gi, "src=\""+myPDFImage+"\"");
+            // textcollections = textcollections.replace(/src="\/static\/icons\/pdf.gif"/gi, "src=\""+myPDFImage+"\"");
+            textcollections = textcollections.replace(/src="\/static\/icons\/pdf.gif"/gi, "src=\"/images/pdf.svg\"");
             console.log("-------");
             console.log(textcollections);
             this.setState({latestcollection: textcollections});
