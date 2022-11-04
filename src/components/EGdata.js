@@ -204,7 +204,7 @@ class EGdata extends React.Component{
             console.log("I am news");
             // textcollections = textcollections.replace(/src="\/static\/icons\/metadata.gif"/gmi,"src=\"/wp-content/reactpress/apps/eg-pages-egdl/public/images/pdf.svg\"");
             textcollections = textcollections.replace(/src="\/static\/icons\/pdf.gif"/gi, "src=\""+myPDFImage+"\"");
-            textcollections = textcollections.replace("height=\"16\" width=\"16\"","height=\"5\" width=\"5\"")
+            textcollections = textcollections.replaceAll("height=\"16\" width=\"16\"","height=\"5px\" width=\"5px\"")
             // textcollections = textcollections.replace(/src="\/static\/icons\/pdf.gif"/gi, "src=\"/%PUBLIC_URL%//pdf.svg\"");
             console.log("-------");
             console.log(textcollections);
