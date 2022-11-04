@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/workshops/static/css/main.a762674d.css",
-    "main.js": "/workshops/static/js/main.f0510458.js",
-    "static/js/787.398905e7.chunk.js": "/workshops/static/js/787.398905e7.chunk.js",
-    "static/media/pdf.svg": "/workshops/static/media/pdf.008c13e77e9039ff777465ca5e576c54.svg",
-    "static/media/metadata.svg": "/workshops/static/media/metadata.38f828a5eefcdaa620599fb0b8e49acd.svg",
-    "index.html": "/workshops/index.html",
-    "main.a762674d.css.map": "/workshops/static/css/main.a762674d.css.map",
-    "main.f0510458.js.map": "/workshops/static/js/main.f0510458.js.map",
-    "787.398905e7.chunk.js.map": "/workshops/static/js/787.398905e7.chunk.js.map"
+    "main.css": "/web/workshops/static/css/main.a762674d.css",
+    "main.js": "/web/workshops/static/js/main.a205595c.js",
+    "static/js/787.398905e7.chunk.js": "/web/workshops/static/js/787.398905e7.chunk.js",
+    "static/media/pdf.svg": "/web/workshops/static/media/pdf.008c13e77e9039ff777465ca5e576c54.svg",
+    "static/media/metadata.svg": "/web/workshops/static/media/metadata.38f828a5eefcdaa620599fb0b8e49acd.svg",
+    "index.html": "/web/workshops/index.html",
+    "main.a762674d.css.map": "/web/workshops/static/css/main.a762674d.css.map",
+    "main.a205595c.js.map": "/web/workshops/static/js/main.a205595c.js.map",
+    "787.398905e7.chunk.js.map": "/web/workshops/static/js/787.398905e7.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a762674d.css",
-    "static/js/main.f0510458.js"
+    "static/js/main.a205595c.js"
   ]
 }
