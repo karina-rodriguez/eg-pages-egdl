@@ -4,8 +4,8 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { SocialIcon } from 'react-social-icons';
-import myPDFImage from '../images/pdf.svg'
-import myMetadataImage from '../images/metadata.svg'
+import myPDFImage from '../images/pdf.png'
+import myMetadataImage from '../images/metadata.png'
 import { TagCloud } from 'react-tagcloud'
 // import { ReactComponent as PDFlogo } from './logo.svg';
 
@@ -201,6 +201,7 @@ class EGdata extends React.Component{
             
             
             console.log("----*******---");
+            console.log("I am news");
             // textcollections = textcollections.replace(/src="\/static\/icons\/metadata.gif"/gmi,"src=\"/wp-content/reactpress/apps/eg-pages-egdl/public/images/pdf.svg\"");
             textcollections = textcollections.replace(/src="\/static\/icons\/pdf.gif"/gi, "src=\""+myPDFImage+"\"");
             // textcollections = textcollections.replace(/src="\/static\/icons\/pdf.gif"/gi, "src=\"/%PUBLIC_URL%//pdf.svg\"");
