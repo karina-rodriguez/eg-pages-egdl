@@ -119,3 +119,31 @@
     margin-right: 10px;
     margin-left: 10px;
 }
+.title{
+    font-weight: bold;
+    white-space: nowrap;
+}
+.links{
+  
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.author{
+    font-style: italic;
+    border-radius: 6px;
+    margin-bottom: .9em;
+    /* background-color: aliceblue;
+    border: 2px dashed gray;
+    max-width: 70%;
+    padding: 1em;
+    margin-bottom: .4em; */
+}
+.sectionheader{
+    font-weight: bold;
+    font-style: italic;
+
+    font-size: larger;
+    margin-bottom: .5em;
+
+}
