@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/web/workshops/static/css/main.a762674d.css",
-    "main.js": "/web/workshops/static/js/main.dddc5b4c.js",
-    "static/js/787.398905e7.chunk.js": "/web/workshops/static/js/787.398905e7.chunk.js",
-    "index.html": "/web/workshops/index.html",
-    "main.a762674d.css.map": "/web/workshops/static/css/main.a762674d.css.map",
-    "main.dddc5b4c.js.map": "/web/workshops/static/js/main.dddc5b4c.js.map",
-    "787.398905e7.chunk.js.map": "/web/workshops/static/js/787.398905e7.chunk.js.map"
+    "main.css": "/workshops/static/css/main.a762674d.css",
+    "main.js": "/workshops/static/js/main.d723c6f4.js",
+    "static/js/787.398905e7.chunk.js": "/workshops/static/js/787.398905e7.chunk.js",
+    "index.html": "/workshops/index.html",
+    "main.a762674d.css.map": "/workshops/static/css/main.a762674d.css.map",
+    "main.d723c6f4.js.map": "/workshops/static/js/main.d723c6f4.js.map",
+    "787.398905e7.chunk.js.map": "/workshops/static/js/787.398905e7.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a762674d.css",
-    "static/js/main.dddc5b4c.js"
+    "static/js/main.d723c6f4.js"
   ]
 }
