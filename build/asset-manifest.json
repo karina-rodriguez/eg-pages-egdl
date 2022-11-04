@@ -1,15 +1,17 @@
 {
   "files": {
-    "main.css": "/wp-content/reactpress/apps/eg-pages-egdl/build/static/css/main.a762674d.css",
-    "main.js": "/wp-content/reactpress/apps/eg-pages-egdl/build/static/js/main.8c203119.js",
-    "static/js/787.398905e7.chunk.js": "/wp-content/reactpress/apps/eg-pages-egdl/build/static/js/787.398905e7.chunk.js",
-    "index.html": "/wp-content/reactpress/apps/eg-pages-egdl/build/index.html",
-    "main.a762674d.css.map": "/wp-content/reactpress/apps/eg-pages-egdl/build/static/css/main.a762674d.css.map",
-    "main.8c203119.js.map": "/wp-content/reactpress/apps/eg-pages-egdl/build/static/js/main.8c203119.js.map",
-    "787.398905e7.chunk.js.map": "/wp-content/reactpress/apps/eg-pages-egdl/build/static/js/787.398905e7.chunk.js.map"
+    "main.css": "/workshops/static/css/main.a762674d.css",
+    "main.js": "/workshops/static/js/main.941b8aae.js",
+    "static/js/787.398905e7.chunk.js": "/workshops/static/js/787.398905e7.chunk.js",
+    "static/media/pdf.svg": "/workshops/static/media/pdf.008c13e77e9039ff777465ca5e576c54.svg",
+    "static/media/metadata.svg": "/workshops/static/media/metadata.38f828a5eefcdaa620599fb0b8e49acd.svg",
+    "index.html": "/workshops/index.html",
+    "main.a762674d.css.map": "/workshops/static/css/main.a762674d.css.map",
+    "main.941b8aae.js.map": "/workshops/static/js/main.941b8aae.js.map",
+    "787.398905e7.chunk.js.map": "/workshops/static/js/787.398905e7.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a762674d.css",
-    "static/js/main.8c203119.js"
+    "static/js/main.941b8aae.js"
   ]
 }

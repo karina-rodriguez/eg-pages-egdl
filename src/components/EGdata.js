@@ -4,9 +4,10 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { SocialIcon } from 'react-social-icons';
-// import myPDFImage from '../images/pdf.svg'
-// import myMetadataImage from '../images/metadata.svg'
+import myPDFImage from '../images/pdf.svg'
+import myMetadataImage from '../images/metadata.svg'
 import { TagCloud } from 'react-tagcloud'
+// import { ReactComponent as PDFlogo } from './logo.svg';
 
 class EGdata extends React.Component{
     constructor(props) {
@@ -194,10 +195,15 @@ class EGdata extends React.Component{
             // var textcollections = data['introductoryText'].replace(/[\r\n]src="\/static\/icons\/metadata.gif"/gmi, "src=\""+myMetadataImage+"\"");
             var textcollections = data['introductoryText'].replace(/\n/g,"");
             textcollections = textcollections.replace(/\s{2,}/g,"");
-            textcollections = textcollections.replace(/src="\/static\/icons\/metadata.gif"/gmi, "src=\"/images/metadata.svg\"");
+            textcollections = textcollections.replace(/src="\/static\/icons\/metadata.gif"/gmi, "src=\""+myMetadataImage+"\"");
+            // textcollections = textcollections.replace(/src="\/static\/icons\/metadata.gif"/gmi, "src=\"/wp-content/reactpress/apps/eg-pages-egdl/public/images/metadata.svg\"");
+
+            
+            
             console.log("----*******---");
-            // textcollections = textcollections.replace(/src="\/static\/icons\/pdf.gif"/gi, "src=\""+myPDFImage+"\"");
-            textcollections = textcollections.replace(/src="\/static\/icons\/pdf.gif"/gi, "src=\"/images/pdf.svg\"");
+            // textcollections = textcollections.replace(/src="\/static\/icons\/metadata.gif"/gmi,"src=\"/wp-content/reactpress/apps/eg-pages-egdl/public/images/pdf.svg\"");
+            textcollections = textcollections.replace(/src="\/static\/icons\/pdf.gif"/gi, "src=\""+myPDFImage+"\"");
+            // textcollections = textcollections.replace(/src="\/static\/icons\/pdf.gif"/gi, "src=\"/%PUBLIC_URL%//pdf.svg\"");
             console.log("-------");
             console.log(textcollections);
             this.setState({latestcollection: textcollections});
