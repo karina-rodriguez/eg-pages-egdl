@@ -204,7 +204,7 @@ class EGdata extends React.Component{
             console.log("I am news");
             // textcollections = textcollections.replace(/src="\/static\/icons\/metadata.gif"/gmi,"src=\"/wp-content/reactpress/apps/eg-pages-egdl/public/images/pdf.svg\"");
             textcollections = textcollections.replace(/src="\/static\/icons\/pdf.gif"/gi, "src=\""+myPDFImage+"\"");
-            textcollections = textcollections.replaceAll("height=\"16\" width=\"16\"","height=\"5px\" width=\"5px\"")
+            // textcollections = textcollections.replaceAll("height=\"16\" width=\"16\"","height=\"5px\" width=\"5px\"")
             // textcollections = textcollections.replace(/src="\/static\/icons\/pdf.gif"/gi, "src=\"/%PUBLIC_URL%//pdf.svg\"");
             console.log("-------");
             console.log(textcollections);
@@ -263,7 +263,7 @@ class EGdata extends React.Component{
         <div>
             <br/>
             {/* Description of the event */}
-            <Container >
+            <Container fluid>
                 <Row className="justify-content-md-center">
 
                     <Col lg={9} className={"container-title " + this.state.id}>  
@@ -299,7 +299,7 @@ class EGdata extends React.Component{
 
             <br></br>
             {/* Subject areas */}
-            <Container >
+            <Container fluid>
                 <Row className="justify-content-md-center">
                     <Col lg={9} className={"container-title " + this.state.id}>                
                     <div ><strong>Subject areas</strong> </div>
@@ -384,7 +384,7 @@ class EGdata extends React.Component{
             <br/>
            
             {/* Last issue */}
-            <Container >
+            <Container fluid>
                 <Row className="justify-content-md-center">
                     <Col lg={9} className={"container-title " + this.state.id}>                
                     <div ><strong>Last Proceedings</strong> </div>
@@ -397,7 +397,7 @@ class EGdata extends React.Component{
                 </Row>
              </Container>
             {/* All issues */}
-            <Container >
+            <Container fluid>
                 <Row className="justify-content-md-center">
                     <Col lg={9} className={"container-title " + this.state.id}>                
                     <div ><strong>All Proceedings</strong> </div>
