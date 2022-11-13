@@ -191,23 +191,23 @@ class EGdata extends React.Component{
             }
         })
         .then((data) => {
-            console.log(data['introductoryText']);            
+            // console.log(data['introductoryText']);            
             // var textcollections = data['introductoryText'].replace(/[\r\n]src="\/static\/icons\/metadata.gif"/gmi, "src=\""+myMetadataImage+"\"");
-            var textcollections = data['introductoryText'].replace(/\n/g,"");
+            var textcollections = data['introductoryText'].replace(/\n/g," ");
             textcollections = textcollections.replace(/\s{2,}/g,"");
             textcollections = textcollections.replace(/src="\/static\/icons\/metadata.gif"/gmi, "src=\""+myMetadataImage+"\"");
             // textcollections = textcollections.replace(/src="\/static\/icons\/metadata.gif"/gmi, "src=\"/wp-content/reactpress/apps/eg-pages-egdl/public/images/metadata.svg\"");
 
             
             
-            console.log("----*******---");
-            console.log("I am news");
+            // console.log("----*******---");
+            // console.log("I am news");
             // textcollections = textcollections.replace(/src="\/static\/icons\/metadata.gif"/gmi,"src=\"/wp-content/reactpress/apps/eg-pages-egdl/public/images/pdf.svg\"");
             textcollections = textcollections.replace(/src="\/static\/icons\/pdf.gif"/gi, "src=\""+myPDFImage+"\"");
             // textcollections = textcollections.replaceAll("height=\"16\" width=\"16\"","height=\"5px\" width=\"5px\"")
             // textcollections = textcollections.replace(/src="\/static\/icons\/pdf.gif"/gi, "src=\"/%PUBLIC_URL%//pdf.svg\"");
-            console.log("-------");
-            console.log(textcollections);
+            // console.log("-------");
+            // console.log(textcollections);
             this.setState({latestcollection: textcollections});
 
         })
