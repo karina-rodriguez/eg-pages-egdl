@@ -42,10 +42,10 @@ class EGdata extends React.Component{
         var id = this.state.communityid;
         var lastissueid = this.state.latestissueid;
         this.getCommunityData(id);
-        this.getCollections(id);
-        // this.getAuthors(id);
-        this.getLastIssue(lastissueid);
-        this.getTopics(id);
+        // this.getCollections(id);
+        // // this.getAuthors(id);
+        // this.getLastIssue(lastissueid);
+        // this.getTopics(id);
     }
     // static getDerivedStateFromProps(props, state) {
     //     console.log('getDerivedStateFromProps method is called'+state.id);
@@ -63,43 +63,133 @@ class EGdata extends React.Component{
     // }
 
     async getCommunityData(id){
-        
+        console.log("aaaa");
+    // fetch(`https://api.github.com/users/eunit99/repos`,{
+    // fetch(`https://gtr.ukri.org/gtr/api/projects/5D97ECD1-DCB3-4836-A84E-547386D59BC7`,{
+    // fetch('https://diglib.eg.org/rest/communities/',{mode: 'cors'})
+    // // .then(res => res.json())
+    // .then(
+    // (result) => {
+    //     this.setState({
+    //         isLoaded: true,
+    //         items: result.items
+    //     });
+    //     },
+    //     // Note: it's important to handle errors here
+    //     // instead of a catch() block so that we don't swallow
+    //     // exceptions from actual bugs in components.
+    //     (error) => {
+    //     this.setState({
+    //         isLoaded: true,
+    //         error
+    //     });
+    // }
+    // )
+    // console.log("bbb");
+    let headers = new Headers();
 
-    await fetch('https://diglib.eg.org/rest/communities/'+id, 
-    {
+  fetch('https://api.github.com/users/hacktivist123/repos')
+  .then(response => response.json())
+  .then(data => console.log(data));
+
+    // headers.append('Content-Type', 'application/json');
+    // headers.append('Accept', 'application/json');
+    // headers.append('Authorization', 'Basic ' + base64.encode(username + ":" +  password));
+    // headers.append('Origin','http://localhost:3000');
+    // headers.append('Access-Control-Allow-Origin','http://localhost');
+    // fetch('https://gtr.ukri.org/gtr/api/projects/5D97ECD1-DCB3-4836-A84E-547386D59BC7', {
+    fetch('https://diglib.eg.org/rest/communities/', {
+        crossDomain:true,
         method: 'GET',
+        mode: 'cors',
         headers: {
-            'Content-Type': 'multipart/form-data',
-            'Access-Control-Allow-Origin': '*',
-        }
-    }
-    )
+        //  'Accept': 'application/json',
+        'Content-Type': 'text/xml',
+        'Access-Control-Allow-Origin': '*',
+        'SOAPAction': 'basicInvoke',
+        // 'Content-Type': 'multipart/form-data'
+        },
+       
+      })
     .then((response) => {
-
+        console.log(response.headers());
         if(response.status === 200){
-            return response.json();     
+            console.log(response.text());
+            return response.text();     
         }else if(response.status === 408){
             this.setState({ requestFailed: true })
         }
-    })
-    .then((data) => {
-        this.setState({name: data['name']});
-        this.setState({description: data['introductoryText']});
+    }).then((data) => {
+        console.log("some data is here"+data);
+        // this.setState({name: data['name']});
+        // this.setState({description: data['introductoryText']});
         // this.setState({ isLoading: false, downlines: data.response })
     })
     .catch((error) => {
+        console.log("error"+error);
         this.setState({ requestFailed: true })      
     })
+
+    // fetch('https://gtr.ukri.org/gtr/api/projects/5D97ECD1-DCB3-4836-A84E-547386D59BC7', {
+    //     mode: 'cors',
+    //     // credentials: 'include',
+    //     method: 'GET',
+    //     headers: headers
+    // })
+    // .then(response => response.json())
+    // .then(json => console.log(json))
+    // .catch(error => console.log('Authorization failed: ' + error.message));
+    // fetch(`https://api.github.com/users/eunit99/repos`)
+    //   .then(response => response.json())
+    //   .then((usefulData) => {
+    //     console.log(usefulData);
+
+    //   })
+    //   .catch((e) => {
+    //     console.error(`An error occurred: ${e}`)
+    //   });
+
+    // fetch('https://api.github.com/users/eunit99/repos', {
+
+    // //investigate how to do pre-flight and get data correctly. Maybe check first hwo to set it up correctly for another sewrver
+    // await fetch('https://gtr.ukri.org/gtr/api/projects/5D97ECD1-DCB3-4836-A84E-547386D59BC7',//'https://diglib.eg.org/rest/communities/'+id, 
+    // {
+    //     method: 'OPTIONS',
+    //     headers: {
+    //         'Content-Type': 'text/xml',
+    //         'Access-Control-Allow-Origin': 'http://localhost:3000',
+    //     }
+    // }
+    // )
+    // .then((response) => {
+
+    //     if(response.status === 200){
+    //         console.log("yeiii");
+
+    //         return response.json();     
+    //     }else if(response.status === 408){
+    //         this.setState({ requestFailed: true })
+    //     }
+    // })
+    // .then((data) => {
+    //     console.log("some data is here");
+    //     this.setState({name: data['name']});
+    //     this.setState({description: data['introductoryText']});
+    //     // this.setState({ isLoading: false, downlines: data.response })
+    // })
+    // .catch((error) => {
+    //     this.setState({ requestFailed: true })      
+    // })
     }
     async getCollections(id){
         
      
-        await fetch('https://diglib.eg.org/rest/communities/'+id+'/collections', 
+        await fetch('https://diglib.eg.org/rest/communities/',//'https://diglib.eg.org/rest/communities/'+id+'/collections', 
         {
             method: 'GET',
             headers: {
                 'Content-Type': 'multipart/form-data',
-                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Origin': 'http://localhost:3000',
             }
         }
         )
@@ -174,7 +264,7 @@ class EGdata extends React.Component{
         // })
     }
     async getLastIssue(id){
-        await fetch('https://diglib.eg.org/rest/collections/'+id, 
+        await fetch('https://gtr.ukri.org/gtr/api/projects/5D97ECD1-DCB3-4836-A84E-547386D59BC7',//'https://diglib.eg.org/rest/collections/'+id, 
         {
             method: 'GET',
             headers: {
@@ -194,7 +284,7 @@ class EGdata extends React.Component{
             // console.log(data['introductoryText']);            
             // var textcollections = data['introductoryText'].replace(/[\r\n]src="\/static\/icons\/metadata.gif"/gmi, "src=\""+myMetadataImage+"\"");
             var textcollections = data['introductoryText'].replace(/\n/g," ");
-            textcollections = textcollections.replace(/\s{2,}/g,"");
+            // textcollections = textcollections.replace(/\s{2,}/g," ");
             textcollections = textcollections.replace(/src="\/static\/icons\/metadata.gif"/gmi, "src=\""+myMetadataImage+"\"");
             // textcollections = textcollections.replace(/src="\/static\/icons\/metadata.gif"/gmi, "src=\"/wp-content/reactpress/apps/eg-pages-egdl/public/images/metadata.svg\"");
 
@@ -217,7 +307,7 @@ class EGdata extends React.Component{
     }
     async getTopics(id){
         // https://diglib.eg.org/solr/search
-        await fetch('https://diglib.eg.org/rest/collections/'+id, 
+        await fetch('https://gtr.ukri.org/gtr/api/projects/5D97ECD1-DCB3-4836-A84E-547386D59BC7',//'https://diglib.eg.org/rest/collections/'+id, 
         {
             method: 'GET',
             headers: {
