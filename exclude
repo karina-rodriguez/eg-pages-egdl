@@ -1,0 +1,7 @@
+- *~
+- .git/
+- exclude
+- .gitlab-ci.yml
+- core
+
+- nbproject/
