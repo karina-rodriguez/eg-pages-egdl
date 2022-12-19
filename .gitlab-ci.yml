@@ -34,4 +34,4 @@ prod_deploy:
   - master
   tags:
     - Sisyphus
-  when: manual
+  when: always
