@@ -63,72 +63,174 @@ class EGdata extends React.Component{
     // }
 
     async getCommunityData(id){
-        console.log("aaaa");
-    // fetch(`https://api.github.com/users/eunit99/repos`,{
-    // fetch(`https://gtr.ukri.org/gtr/api/projects/5D97ECD1-DCB3-4836-A84E-547386D59BC7`,{
-    // fetch('https://diglib.eg.org/rest/communities/',{mode: 'cors'})
-    // // .then(res => res.json())
-    // .then(
-    // (result) => {
-    //     this.setState({
-    //         isLoaded: true,
-    //         items: result.items
-    //     });
-    //     },
-    //     // Note: it's important to handle errors here
-    //     // instead of a catch() block so that we don't swallow
-    //     // exceptions from actual bugs in components.
-    //     (error) => {
-    //     this.setState({
-    //         isLoaded: true,
-    //         error
-    //     });
-    // }
-    // )
-    // console.log("bbb");
-    let headers = new Headers();
 
-  fetch('https://api.github.com/users/hacktivist123/repos')
-  .then(response => response.json())
-  .then(data => console.log(data));
+
+    //1******This code works for the gtUKI - do NOT CHANGE IT as it serves as an example ******
+    // const theresponse = await fetch('https://gtr.ukri.org/gtr/api/projects/5D97ECD1-DCB3-4836-A84E-547386D59BC7',{
+    //     headers: {
+    //         'Accept': 'application/json',
+
+    //         'Content-Type': 'application/json',
+    //         'Access-Control-Allow-Origin': '*',
+    //     }
+    // });
+    // const json = await theresponse.text();
+    // console.log(json);
+    //******This code below works for the gtUKI - do NOT CHANGE IT as it serves as an example ******
+
+     //2******This code works for the gtUKI - do NOT CHANGE IT as it serves as an example ******
+    //  const myHeaders = new Headers();
+    // myHeaders.append('Content-Type', 'application/json');
+    // myHeaders.append('Accept', 'application/ss');
+    // myHeaders.append('Access-Control-Allow-Origin', '*');
+    // myHeaders.append('crossDomain', 'True');
+
+
+    // const theresponse = await fetch('https://gtr.ukri.org/gtr/api/projects/5D97ECD1-DCB3-4836-A84E-547386D59BC7',{
+    //     // mode: 'cors',
+    //     method: 'GET',
+    //     // credentials: 'include',
+    //     // cache: 'no-cache',
+    //     headers: myHeaders,
+    // });
+    // const json = await theresponse.text();
+    // console.log(json);  
+    //2******This code works for the gtUKI - do NOT CHANGE IT as it serves as an example ******
+
+
+    // fetch('https://api.connectingcontexts.uk/Learn.php')
+    //    .then(response => response.json())
+    //    .then(data => console.log(data));
+
+    // const theresponse = await fetch('https://diglib.eg.org/rest/test',{
+    // const theresponse = await fetch('https://diglib.eg.org/rest/communities/?expand=all',{
+    // const myHeaders = new Headers();
+    // // myHeaders.append('Content-Type', 'application/xml');
+    // myHeaders.append('Accept', 'application/xml');
+    // myHeaders.append('Access-Control-Allow-Origin', '*');
+    // // myHeaders.append('Access-Control-Allow-Credentials','True')
+    // // myHeaders.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    // // myHeaders.append('Access-Control-Allow-Headers', 'Content-Type');
+    // // myHeaders.append('crossDomain', 'True');
+    // // myHeaders.append('Backbone.emulateHTTP', 'True');
+
+    // const theresponse1 = await fetch('https://gtr.ukri.org/gtr/api/projects/5D97ECD1-DCB3-4836-A84E-547386D59BC7',{
+    //     mode: 'cors',
+    //     method: 'GET',
+    //     // credentials: 'include',
+    //     cache: 'no-store',
+    //     headers: myHeaders,
+    // });
+
+
+
+
+    // look at this link discussing the problem: https://stackoverflow.com/questions/11300874/backbone-fetch-request-is-options-method
+    //it seems an option call preceds the GET call and it fails,
+    //accordinf to: https://stackoverflow.com/questions/7067966/why-doesnt-adding-cors-headers-to-an-options-route-allow-browsers-to-access-my
+    //any Request Headers apart from the following will trigger a pre-flight request, including Access-Control-Allow-Origin’
+    //this is why when the error is triggered with 'Reason: CORS header ‘Access-Control-Allow-Origin’ missing' and I add, then the OPTIONS call is 
+    //triggered and this fails.
+    // const json1 = await theresponse1.text();
+    // console.log(json1); 
+    // const theresponse = await fetch('https://diglib.eg.org/rest/communities',{
+    //     // mode: 'cors',
+    //     method: 'GET',
+    //     credentials: 'include',
+    //     // cache: 'no-cache',
+    //     headers: myHeaders,
+    // });
+    // const json = await theresponse.text();
+    // console.log(json);    
+
+
+
+   
+//         console.log("aaaa");
+//     // fetch(`https://api.github.com/users/eunit99/repos`,{
+//     // fetch(`https://gtr.ukri.org/gtr/api/projects/5D97ECD1-DCB3-4836-A84E-547386D59BC7`,{
+    // fetch('https://diglib.eg.org/rest/communities/',{mode: 'cors'})
+//     // // .then(res => res.json())
+//     // .then(
+//     // (result) => {
+//     //     this.setState({
+//     //         isLoaded: true,
+//     //         items: result.items
+//     //     });
+//     //     },
+//     //     // Note: it's important to handle errors here
+//     //     // instead of a catch() block so that we don't swallow
+//     //     // exceptions from actual bugs in components.
+//     //     (error) => {
+//     //     this.setState({
+//     //         isLoaded: true,
+//     //         error
+//     //     });
+//     // }
+//     // )
+//     // console.log("bbb");
+//     let headers = new Headers();
+
+//   fetch('https://api.github.com/users/hacktivist123/repos')
+//   .then(response => response.json())
+//   .then(data => console.log(data));
+
+
+
 
     // headers.append('Content-Type', 'application/json');
     // headers.append('Accept', 'application/json');
     // headers.append('Authorization', 'Basic ' + base64.encode(username + ":" +  password));
     // headers.append('Origin','http://localhost:3000');
     // headers.append('Access-Control-Allow-Origin','http://localhost');
-    // fetch('https://gtr.ukri.org/gtr/api/projects/5D97ECD1-DCB3-4836-A84E-547386D59BC7', {
-    fetch('https://diglib.eg.org/rest/communities/', {
-        crossDomain:true,
-        method: 'GET',
-        mode: 'cors',
-        headers: {
-        //  'Accept': 'application/json',
-        'Content-Type': 'text/xml',
-        'Access-Control-Allow-Origin': '*',
-        'SOAPAction': 'basicInvoke',
-        // 'Content-Type': 'multipart/form-data'
-        },
-       
-      })
-    .then((response) => {
-        console.log(response.headers());
-        if(response.status === 200){
-            console.log(response.text());
-            return response.text();     
-        }else if(response.status === 408){
-            this.setState({ requestFailed: true })
-        }
-    }).then((data) => {
-        console.log("some data is here"+data);
-        // this.setState({name: data['name']});
-        // this.setState({description: data['introductoryText']});
-        // this.setState({ isLoading: false, downlines: data.response })
-    })
-    .catch((error) => {
-        console.log("error"+error);
-        this.setState({ requestFailed: true })      
-    })
+    // fetch('https://gtr.ukri.org/gtr/api/projects/5D97ECD1-DCB3-4836-A84E-547386D59BC7'
+    // // fetch('https://api.connectingcontexts.uk/Learn.php', {
+    // // fetch('https://diglib.eg.org/rest/communities/'
+    // , {
+    // //     // crossDomain:true,
+    // //     // method: 'GET',
+    // //     // mode: 'cors',
+    //     // headers: {
+    // // //     // //  'Accept': 'application/json',
+    // //         'Content-Type': 'text/xml',
+    // //         'Access-Control-Allow-Origin': '*',
+    // // //     // 'SOAPAction': 'basicInvoke',
+    // // //     // // 'Content-Type': 'multipart/form-data'
+    // //     },
+    //     method: 'GET',
+    //     mode: 'cors',
+    //     headers: {
+    //         // 'Content-Type': 'text/xml',
+    //         // 'Access-Control-Allow-Origin': 'http://localhost:3000',
+    //         'Content-Type': 'application/json'
+    //     }
+
+    //   }
+    //   )
+    // .then((response) => {
+    //     console.log("here _ responnse ");
+
+    //     console.log(response);
+    //     console.log(response.headers());
+    //     if(response.status === 200){
+    //         console.log("********* "+response.text());
+    //         return response.text();     
+    //     }else if(response.status === 408){
+    //         this.setState({ requestFailed: true })
+    //     }
+    // }).then((data) => {
+    //     console.log("here _ data ");
+
+    //     console.log("here _ data ");
+    //     console.log("some data is here"+data);
+    //     // this.setState({name: data['name']});
+    //     // this.setState({description: data['introductoryText']});
+    //     // this.setState({ isLoading: false, downlines: data.response })
+    // })
+    // .catch((error) => {
+    //     console.log("error"+error);
+    //     this.setState({ requestFailed: true })      
+    // })
 
     // fetch('https://gtr.ukri.org/gtr/api/projects/5D97ECD1-DCB3-4836-A84E-547386D59BC7', {
     //     mode: 'cors',
@@ -152,39 +254,39 @@ class EGdata extends React.Component{
     // fetch('https://api.github.com/users/eunit99/repos', {
 
     // //investigate how to do pre-flight and get data correctly. Maybe check first hwo to set it up correctly for another sewrver
-    // await fetch('https://gtr.ukri.org/gtr/api/projects/5D97ECD1-DCB3-4836-A84E-547386D59BC7',//'https://diglib.eg.org/rest/communities/'+id, 
-    // {
-    //     method: 'OPTIONS',
-    //     headers: {
-    //         'Content-Type': 'text/xml',
-    //         'Access-Control-Allow-Origin': 'http://localhost:3000',
-    //     }
-    // }
-    // )
-    // .then((response) => {
+    await fetch('https://diglib.eg.org/rest/communities/'+id, 
+        {
+            'Accept': 'application/xml',
+            'content-type': 'application/x-www-form-urlencoded',
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'GET, POST, PUT',
+            'Access-Control-Allow-Headers': 'Content-Type',
+        }
+    )
+    .then((response) => {
+        console.log(response);
+        if(response.status === 200){
+            return response.json();     
+        }else if(response.status === 408){
+            this.setState({ requestFailed: true })
+        }
+    })
+    .then((data) => {
+        console.log(data);
+        this.setState({name: data['name']});
+        this.setState({description: data['introductoryText']});
+        // this.setState({ isLoading: false, downlines: data.response })
+    })
+    .catch((error) => {
+        console.log(error);
 
-    //     if(response.status === 200){
-    //         console.log("yeiii");
-
-    //         return response.json();     
-    //     }else if(response.status === 408){
-    //         this.setState({ requestFailed: true })
-    //     }
-    // })
-    // .then((data) => {
-    //     console.log("some data is here");
-    //     this.setState({name: data['name']});
-    //     this.setState({description: data['introductoryText']});
-    //     // this.setState({ isLoading: false, downlines: data.response })
-    // })
-    // .catch((error) => {
-    //     this.setState({ requestFailed: true })      
-    // })
+        this.setState({ requestFailed: true })      
+    })
     }
     async getCollections(id){
         
      
-        await fetch('https://diglib.eg.org/rest/communities/',//'https://diglib.eg.org/rest/communities/'+id+'/collections', 
+        await fetch('/communities/'+id+'/collections', 
         {
             method: 'GET',
             headers: {
@@ -264,7 +366,7 @@ class EGdata extends React.Component{
         // })
     }
     async getLastIssue(id){
-        await fetch('https://gtr.ukri.org/gtr/api/projects/5D97ECD1-DCB3-4836-A84E-547386D59BC7',//'https://diglib.eg.org/rest/collections/'+id, 
+        await fetch('/collections/'+id, 
         {
             method: 'GET',
             headers: {
@@ -307,7 +409,7 @@ class EGdata extends React.Component{
     }
     async getTopics(id){
         // https://diglib.eg.org/solr/search
-        await fetch('https://gtr.ukri.org/gtr/api/projects/5D97ECD1-DCB3-4836-A84E-547386D59BC7',//'https://diglib.eg.org/rest/collections/'+id, 
+        await fetch('/collections/'+id, 
         {
             method: 'GET',
             headers: {

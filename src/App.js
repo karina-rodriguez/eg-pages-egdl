@@ -1,8 +1,8 @@
+// (base) Karina-Laptop-2:react-pages-egdl kre$ scp -r build/ chws@chws.brighton.domains:/home/chws/www/web/wp-content/reactpress/apps/eg-pages-egdl
 import EGdata from './components/EGdata';
-import { Routes, Route } from "react-router-dom"
-import './App.css';
 import React from 'react';
-import { HashRouter } from 'react-router-dom';
+import { Routes, Route, HashRouter } from "react-router-dom"
+import './App.css';
 
 // const routes = {
 //   "/": () => <EGdata title='3DOR: Eurographics Workshop on 3D Object Retrieval' 
@@ -59,13 +59,13 @@ function App() {
   //   //   this.updateUser();
   //   // }
   // }
-  // render() {
+//   render() {
     return (
 
     <div className="App">
     <HashRouter forceRefresh={true}>
-        <Routes>
-        <Route path="/gch" element={
+         <Routes>
+         <Route path="/gch" element={
         <EGdata title='EG Workshop on Graphics and Cultural Heritage' 
         chair='Dieter Fellner and Karina Rodriguez Echavarria' 
         communityid='97846f9e-10b3-4c61-919b-ca65128c8e10' 
@@ -104,15 +104,15 @@ function App() {
         description={gsrdescription}
         link=''
         latestissueid='2045a532-c714-4f84-92dc-a4e5046c56d0'/> 
-        } onLoad={forceUpdate}/>
-        </Routes>
+        } onLoad={forceUpdate}/> 
+        </Routes> 
       </HashRouter>
      
         </div>
     )
-  // }
+  }
 
-}
+// }
 export default App;
 
 // function App() {
