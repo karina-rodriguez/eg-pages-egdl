@@ -42,10 +42,10 @@ class EGdata extends React.Component{
         var id = this.state.communityid;
         var lastissueid = this.state.latestissueid;
         this.getCommunityData(id);
-        // this.getCollections(id);
+        this.getCollections(id);
         // // this.getAuthors(id);
-        // this.getLastIssue(lastissueid);
-        // this.getTopics(id);
+        this.getLastIssue(lastissueid);
+        this.getTopics(id);
     }
     // static getDerivedStateFromProps(props, state) {
     //     console.log('getDerivedStateFromProps method is called'+state.id);
@@ -254,7 +254,11 @@ class EGdata extends React.Component{
     // fetch('https://api.github.com/users/eunit99/repos', {
 
     // //investigate how to do pre-flight and get data correctly. Maybe check first hwo to set it up correctly for another sewrver
-    await fetch('https://diglib.eg.org/rest/communities/'+id, 
+    //https://diglib7.eg.org:8443/server
+    //https://diglib.eg.org/rest/communities/
+    //https://diglib7.eg.org:8443/server/api/core/communities
+    //https://diglib.eg.org/rest/communities/
+        await fetch('https://diglib7.eg.org:8443/server/api/core/communities/'+id, 
         {
             'Accept': 'application/xml',
             'content-type': 'application/x-www-form-urlencoded',
@@ -273,8 +277,10 @@ class EGdata extends React.Component{
     })
     .then((data) => {
         console.log(data);
+        console.log(data['metadata']['dc.description'][0].value);
         this.setState({name: data['name']});
-        this.setState({description: data['introductoryText']});
+        this.setState({description: data['metadata']['dc.description'][0].value});
+
         // this.setState({ isLoading: false, downlines: data.response })
     })
     .catch((error) => {
@@ -285,14 +291,13 @@ class EGdata extends React.Component{
     }
     async getCollections(id){
         
-     
-        await fetch('/communities/'+id+'/collections', 
+        https://diglib7.eg.org:8443/server/api/core/communities/97846f9e-10b3-4c61-919b-ca65128c8e10/collections/ 
+        await fetch('https://diglib7.eg.org:8443/server/api/core/communities/'+id+'/collections/', 
         {
             method: 'GET',
-            headers: {
-                'Content-Type': 'multipart/form-data',
-                'Access-Control-Allow-Origin': 'http://localhost:3000',
-            }
+            // headers: {
+            //     'Content-Type': 'multipart/form-data',
+            // }
         }
         )
         .then((response) => {
@@ -304,13 +309,12 @@ class EGdata extends React.Component{
             }
         })
         .then((data) => {
-            console.log(data);
             var newcollections = [];
-            for (var key in data) {
-                // console.log(data[key].uuid);
-                var combined = { nameofcollection: data[key].name, 
-                                 idofcollection: data[key].uuid,
-                                 linkofcollection: 'https://diglib.eg.org'+data[key].link};
+            var toiterate =  data['_embedded']['collections'];
+            for (var key in toiterate) {
+                var combined = { nameofcollection: toiterate[key].name, 
+                                 idofcollection: toiterate[key].uuid,
+                                 linkofcollection: 'https://diglib7.eg.org:8443/server/api/core/collections/'+toiterate[key].uuid};
                                  newcollections.push(combined);
             }
             this.setState({ collections: newcollections }) 
@@ -366,13 +370,9 @@ class EGdata extends React.Component{
         // })
     }
     async getLastIssue(id){
-        await fetch('/collections/'+id, 
+        await fetch('https://diglib7.eg.org:8443/server/api/core/collections/'+id, 
         {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'multipart/form-data',
-                'Access-Control-Allow-Origin': '*',
-            }
+            method: 'GET'
         }
         )
         .then((response) => {
@@ -383,9 +383,10 @@ class EGdata extends React.Component{
             }
         })
         .then((data) => {
-            // console.log(data['introductoryText']);            
+            console.log(data['metadata']['dc.description'][0].value);
+
             // var textcollections = data['introductoryText'].replace(/[\r\n]src="\/static\/icons\/metadata.gif"/gmi, "src=\""+myMetadataImage+"\"");
-            var textcollections = data['introductoryText'].replace(/\n/g," ");
+            var textcollections = data['metadata']['dc.description'][0].value.replace(/\n/g," ");
             // textcollections = textcollections.replace(/\s{2,}/g," ");
             textcollections = textcollections.replace(/src="\/static\/icons\/metadata.gif"/gmi, "src=\""+myMetadataImage+"\"");
             // textcollections = textcollections.replace(/src="\/static\/icons\/metadata.gif"/gmi, "src=\"/wp-content/reactpress/apps/eg-pages-egdl/public/images/metadata.svg\"");
@@ -401,7 +402,7 @@ class EGdata extends React.Component{
             // console.log("-------");
             // console.log(textcollections);
             this.setState({latestcollection: textcollections});
-
+            //this.setState({latestcollection: data['metadata']['dc.description'][0].value});
         })
         .catch((error) => {
             this.setState({ requestFailed: true })      

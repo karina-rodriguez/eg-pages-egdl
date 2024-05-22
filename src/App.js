@@ -1,3 +1,4 @@
+//npm run build
 // (base) Karina-Laptop-2:react-pages-egdl kre$ scp -r build/ chws@chws.brighton.domains:/home/chws/www/web/wp-content/reactpress/apps/eg-pages-egdl
 import EGdata from './components/EGdata';
 import React from 'react';
